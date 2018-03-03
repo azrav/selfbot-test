@@ -1083,6 +1083,7 @@ function mp_connectVC(msg, callback=null) {
 
 	console.log('connectVC:');
 	const channel = msg.member.voiceChannel;
+	msg.reply('Attempting to connect to '+channel.id);
 		
 	channel.join().then(connection => {
 		console.log('CONNECT!');
