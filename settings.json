@@ -1,0 +1,9 @@
+{
+	"prefix": "e!"
+,	"savePath": "db/"
+,	"dmReply": "Hey there! Use !help on a public chat room to see the command list."
+,	"mentionReply": "Use !help to see the command list."
+,	"readyAct": "help for help"
+,	"disconnectAct": "in maintainence"
+,	"audioMaxVol": 150
+}
