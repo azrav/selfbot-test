@@ -1,6 +1,7 @@
 const Discord = require("discord.js");
 const bot = new Discord.Client({autoReconnect: true, max_message_cache: 0});
 
+const path = require("path");
 const fs = require("fs");
 const ytdl = require("ytdl-core");
 const request = require("request");
