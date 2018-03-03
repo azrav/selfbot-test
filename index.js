@@ -30,18 +30,23 @@ const id_ytplist = 1;
 const id_yturl = 2;
 const id_sc = 3;
 
+//Init file needed directories for save&load
+let temp_dir = path.join(process.cwd(), 'db/');
+if (!fs.existsSync(temp_dir))
+    fs.mkdirSync(temp_dir);
+
 //Init default bot config
 let cfg = JSON.parse(fs.readFileSync('./settings.json', 'utf-8'));
+
+cfg.token = process.env.BOT_TOKEN;
+cfg.yt_api_key = process.env.YT_API_KEY;
+cfg.devID = process.env.DEV_ID;
 
 bot.on("ready", ()=>{
 	bot.user.setGame(cfg.prefix + cfg.readyAct);
 	bot.user.setStatus("stream");
 	// bot.user.setActivity({game: {name: cfg.prefix + cfg.readyAct, type: 0}});
 });
-
-cfg.token = process.env.BOT_TOKEN;
-cfg.yt_api_key = process.env.YT_API_KEY;
-cfg.devID = process.env.DEV_ID;
 
 bot.login(cfg.token);
 
