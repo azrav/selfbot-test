@@ -31,10 +31,10 @@ const id_ytplist = 1;
 const id_yturl = 2;
 const id_sc = 3;
 
-//Init file needed directories for save&load
-let temp_dir = path.join(process.cwd(), cfg.savePath);
-if (!fs.existsSync(temp_dir))
-    fs.mkdirSync(temp_dir);
+// //Init file needed directories for save&load
+// let temp_dir = path.join(process.cwd(), cfg.savePath);
+// if (!fs.existsSync(temp_dir))
+//     fs.mkdirSync(temp_dir);
 
 //Init default bot config
 let cfg = JSON.parse(fs.readFileSync('./settings.json', 'utf-8'));
