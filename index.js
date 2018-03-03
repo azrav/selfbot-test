@@ -105,7 +105,12 @@ bot.on("message", (msg)=>{
 			//Command
 			if(tMsg.startsWith(prefix)) {
 				console.log('ENTER');
-				handle_cmd(msg, tMsg.substring(prefix.length));
+				try {
+					handle_cmd(msg, tMsg.substring(prefix.length));
+				}
+				catch (err) {
+					msg.channel.send("`ERROR`\n"+err);
+				}
 			}
 			
 			//Speech
