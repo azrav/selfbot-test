@@ -31,7 +31,7 @@ const id_yturl = 2;
 const id_sc = 3;
 
 //Init file needed directories for save&load
-let temp_dir = path.join(process.cwd(), 'db/');
+let temp_dir = path.join(process.cwd(), cfg.savePath);
 if (!fs.existsSync(temp_dir))
     fs.mkdirSync(temp_dir);
 
