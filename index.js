@@ -43,7 +43,7 @@ cfg.token = process.env.BOT_TOKEN;
 cfg.yt_api_key = process.env.YT_API_KEY;
 cfg.devID = process.env.DEV_ID;
 
-bot.login();
+bot.login(cfg.token);
 
 // fs.access(aliases_file_path, fs.F_OK, (err) => {
 // 	if(err)
