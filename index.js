@@ -1081,7 +1081,7 @@ function mp_playing(msg) {
 function mp_connectVC(msg, callback=null) {
 	let svr = servers[msg.guild.id];
 	let server = bot.guilds.get("id", msg.guild.id);
-	const channel = server.channels.find(chn => chn.id == msg.member.voiceSessionID);
+	let channel = server.channels.find(chn => chn.id == msg.member.voiceSessionID);
 	msg.reply('Attempt 2 connect 2: '+ msg.member.voiceSessionID);
 
 	if (!channel) {
