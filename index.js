@@ -342,7 +342,6 @@ let commands = [
 			}
 			//Not using voice channel
 			else if (!msg.guild.voiceConnection) {
-				svr.vcConnecting = true;
 				msg.channel.send('*Loading request...*');
 
 				mp_connectVC(msg, ()=>{
@@ -1099,9 +1098,11 @@ function mp_playing(msg) {
 
 function mp_connectVC(msg, callback=null) {
 	let svr = servers[msg.guild.id];
-	let server = bot.guilds.get("id", msg.guild.id);
-	let channel = server.channels.find(chn => chn.id == msg.member.voiceSessionID);
-	msg.reply('Attempt 2 connect 2: '+ msg.member.voiceSessionID);
+	// let server = bot.guilds.get("id", msg.guild.id);
+	// let channel = server.channels.find(chn => chn.id == msg.member.voiceSessionID);
+	let channel = msg.member.voiceChannel;
+	msg.reply('Attempt 2 connect 2: '+ msg.member.voiceChannel);
+	svr.vcConnecting = true;
 
 	if (!channel) {
 		msg.reply('Cannot find Channel');
