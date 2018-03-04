@@ -673,7 +673,7 @@ let commands = [
 				msg.channel.sendMessage(`\`ERROR\` \`\`\`xl\n${clean(err)}\n\`\`\``);
 			}
 		}
-	}
+	},
 
 	{
 		command: 'logout',
@@ -685,7 +685,7 @@ let commands = [
 
 			bot.destroy();
 		}
-	},
+	}
 ];
 
 // function playlist_manager(msg) {
