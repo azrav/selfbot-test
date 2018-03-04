@@ -1,0 +1,1 @@
+npm install ffmpeg-binaries
