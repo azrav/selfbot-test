@@ -159,6 +159,10 @@ let commands = [
 				for (let i = 0; i < cmdCat[cat].length; ++i)
 				{
 					let c = search_cmd(cmdCat[cat][i]);
+					if (!c) {
+						msg.reply('`ERROR`\n' + c.command + ' does not exist.');
+						continue;
+					}
 					response += "\n!" + c.command;
 					for(var j = 0; j < c.parameters.length; j++)
 						response += " <" + c.parameters[j] + ">";
