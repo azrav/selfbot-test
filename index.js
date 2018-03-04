@@ -24,7 +24,7 @@ cmdCat['MUSIC'] =['play', 'pause', 'resume', 'stop'
 				, 'skip', 'previous', 'skipto'
 				, 'playlist', 'clearlist', 'np', 'setnp'];
 cmdCat['OWNER'] = ['resetserverconfig'];
-cmdCat['DEV'] = ['setusername', 'setavatar'];
+cmdCat['DEVELOPER'] = ['setusername', 'setavatar'];
 
 //Music defines
 const id_ytplist = 1;
@@ -151,7 +151,7 @@ let commands = [
 
 			for (let cat in cmdCat) {
 				//Skip special role categories unsuited for user
-				if ((cat == 'OWN' || cat == 'DEV' || cat == 'MOD')
+				if ((cat == 'OWNER' || cat == 'DEVELOPER' || cat == 'MOD')
 				&&	roles.indexOf(cat) == -1)
 					continue;
 
@@ -312,8 +312,11 @@ let commands = [
 		description: "Reset bot settings for host's server.",
 		parameters: [],
 		execute: function (msg, params) {
-			if (msg.guild.ownerID == msg.author.id)
-				init_server(true);
+
+			if (special_role(msg).indexOf('OWNER') == -1)
+				return;
+
+			init_server(true);
 		}
 	},
 
@@ -671,6 +674,18 @@ let commands = [
 			}
 		}
 	}
+
+	{
+		command: 'logout',
+		description: "Leaves connection and goes offline.",
+		parameters: [],
+		execute: function (msg, params) {
+			if (special_role(msg).indexOf('DEVELOPER') == -1)
+				return;
+
+			bot.destroy();
+		}
+	},
 ];
 
 // function playlist_manager(msg) {
